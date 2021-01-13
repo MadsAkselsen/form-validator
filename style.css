@@ -51,11 +51,11 @@ input {
   transition: all 0.3;
 }
 
-input:valid {
+input:not(:placeholder-shown):valid {
   border: 1px solid green;
 }
 
-input:invalid {
+input:not(:placeholder-shown):invalid {
   border: 1px solid red;
 }
 
