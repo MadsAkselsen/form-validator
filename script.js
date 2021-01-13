@@ -8,9 +8,9 @@ let isValid = false;
 let passwordsMatch = false;
 
 function validateForm() {
-  //Using contraint API
+  // Using contraint API. CheckValidity returns true if all the html validations has been passed. If they are true, then we can start validting with the below JS
   isValid = form.checkValidity();
-  //style main message for an error
+  // style main message for an error
   if (!isValid) {
     message.textContent = 'Please fill out all fields.';
     message.style.color = 'red';
@@ -33,7 +33,7 @@ function validateForm() {
   }
   // if form is valid and passwords match
   if (isValid && passwordsMatch) {
-    message.textContent = 'Successfully Registered';
+    message.textContent = 'All Fields Filled Successfully!';
     message.style.color = 'green';
     messageContainer.style.borderColor = 'green';
   }
@@ -47,7 +47,7 @@ function storeFormData() {
     website: form.website.value,
     password: form.password.value,
   };
-  // do somehting with user data
+  // do somehting with user data (send to backend for further validation)
   console.log(user);
 }
 
@@ -58,9 +58,10 @@ function processFormData(e) {
   // submit data if valid
   if (isValid && passwordsMatch) {
     storeFormData();
+    message.textContent = 'Successfully Registered';
   }
 }
 
 // Event listener
 form.addEventListener('submit', processFormData);
-password2El.addEventListener('change', processFormData);
+password2El.addEventListener('input', validateForm);
