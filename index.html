@@ -12,7 +12,8 @@
     <div class="container">
       <h1>Sign Up Today</h1>
       <!-- Form -->
-      <form id="form">
+      <form id="form" novalidate>
+        <!-- novalidate enables sbumit to fire the submit event even though the inserted fields are not valid. This is useful if we want take control over validation through our JS -->
         <!-- Full Name -->
         <div class="form-group">
           <label for="name">Full Name</label>
